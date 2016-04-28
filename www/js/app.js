@@ -39,22 +39,22 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       }
     }
   })
-
-  .state('tab.publicacoes', {
-      url: '/publicacoes',
-      views: {
-        'tab-publicacoes': {
-          templateUrl: 'templates/tab-publicacoes.html',
-          controller: 'PublicacoesCtrl'
-        }
+  .state('tab.fiscalizar-detalhe', {
+    url: '/fiscalizar/:publicacaoId',
+    views: {
+      'tab-fiscalizar': {
+        templateUrl: 'templates/fiscalizar-detalhe.html',
+        controller: 'PublicacaoDetailCtrl'
       }
-    })
-    .state('tab.publicacao-detalhe', {
-      url: '/publicacoes/:publicacaoId',
+    }
+  })
+
+  .state('tab.publicar', {
+      url: '/publicar',
       views: {
-        'tab-publicacoes': {
-          templateUrl: 'templates/publicacao-detalhe.html',
-          controller: 'PublicacaoDetailCtrl'
+        'tab-publicar': {
+          templateUrl: 'templates/tab-publicar.html',
+          controller: 'PublicarCtrl'
         }
       }
     })
@@ -70,6 +70,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   });
 
   // se nenhum dos estados acima são correspondidos, use isso como o fallback
-  $urlRouterProvider.otherwise('/tab/publicacoes');
+  $urlRouterProvider.otherwise('/tab/publicar');
 
 });
