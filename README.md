@@ -16,4 +16,4 @@ Estamos feliz por você estar participando da nossa seleção, boa sorte.
 
 Universidade Federal de Pernambuco
 Núcleo de Tecnologia da Informação
-Responsável: Thiago Bezera
+Responsável: Thiago Bezerra
