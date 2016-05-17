@@ -5,13 +5,50 @@
   The Friends service returns an array of friend data
 -->
 <ion-view view-title="{{publicacao.nome}}">
-  <ion-content>
-
-    <div class="item item-avatar">
+   <ion-content class="padding">
+     
+     <div class="list card">
+       
+        <div class="item item-avatar">
+            <img src="{{publicacao.face}}">
+            <h2>{{publicacao.nome}}</h2>
+            <p>{{publicacao.data}}</p>
+        </div>
+       
+        <div class="item item-body">
+            <img class="full-image" src="{{publicacao.foto}}">
+            <p>{{publicacao.descricao}}</p>
+          
+            <p>Comentarios: </p>
+            
+            <div class="list" ng-repeat="comentario in comentarios track by $index">
+               <div class="list list-insert">
+                  <div class="item">{{comentario.conteudo}}</div>
+              </div>
+            </div>
+            
+              <!-- Area de inserção de comentários. -->
+              <ion-item>
+                <form>
+                  <input type="text" ng-model="comentario">
+                    
+                  </input>
+                  
+                  <button type="submit" ng-click="addComentario()" class="button button-block button-positive">
+                    Comentar
+                  </button>
+                </form>
+              </ion-item>
+            </div>
+        </div>
+        
+     </div>
+     <!-- <div class="card item item-avatar">
       <img src="{{publicacao.face}}">
       <h2>{{publicacao.nome}}</h2>
+      </div>
       <p>{{publicacao.data}}</p>
-      <img class="full-image" src="{{publicacao.foto}}">
+      
       <p>
         {{publicacao.descricao}}
       </p>
@@ -23,6 +60,7 @@
       <button class="button button-full button-positive">
         Comentar
       </button>
-  </ion-content>
-    </div>
+  
+    </div>-->
+    </ion-content>
 </ion-view>

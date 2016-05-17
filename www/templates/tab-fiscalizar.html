@@ -6,6 +6,7 @@
         <input type="text" placeholder="Pesquisar">
       </label>
     </div>
+    
     <div class="list card" ng-repeat="publicacao in publicacoes">
 
       <div class="item item-avatar">
@@ -19,7 +20,10 @@
           {{publicacao.descricao}}
         </p>
         <p>
-          <a href="#/tab/fiscalizar" class="subdued">1 Apoiador</a>
+          <button ng-click="apoiar({{publicacao}})" class="button button-block button-positive">
+            Apoiar
+          </button>
+          <a href="#/tab/fiscalizar" class="subdued">{{publicacao.apoiadores}} Apoiadores</a>
           <a href="#/tab/fiscalizar/{{publicacao.id}}" class="subdued">5 Comentários</a>
           <a href="#/tab/fiscalizar" class="subdued">Divulgar</a>
         </p>

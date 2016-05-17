@@ -12,10 +12,28 @@ angular.module('starter.controllers', [])
   //});
 
   $scope.publicacoes = Publicacoes.all();
+  $scope.apoiar = function ( item ) {
+    var publicacoes = $scope.publicacoes;
+    publicacoes[item.id].apoiadores++;  
+  };
+  
 })
 
-.controller('PublicacaoDetailCtrl', function($scope, $stateParams, Publicacoes) {
+.controller('PublicacaoDetailCtrl', function($scope, $stateParams, Publicacoes, Comentarios) {
   $scope.publicacao = Publicacoes.get($stateParams.publicacaoId);
+  $scope.comentarios = Comentarios.get($stateParams.publicacaoId);
+
+  $scope.addComentario = function() {
+    var id = Comentarios.totalPorPublicacao($stateParams.publicacaoId);
+
+    $scope.dados = new function() {
+         id = id + 1;
+         publicacaoId = $stateParams.publicacaoId;
+         conteudo = '';
+    }
+    $scope.comentarios.push($scope.dados);
+  };
+  
 })
 
 .controller('AtividadeCtrl', function($scope) {
