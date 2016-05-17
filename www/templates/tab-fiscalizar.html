@@ -7,24 +7,25 @@
       </label>
     </div>
     <div class="list card" ng-repeat="publicacao in publicacoes">
-
       <div class="item item-avatar">
         <img src="{{publicacao.face}}">
         <h2>{{publicacao.nome}}</h2>
         <p>{{publicacao.data}}</p>
       </div>
+
       <div class="item item-body">
         <img class="full-image" src="{{publicacao.foto}}">
         <p>
           {{publicacao.descricao}}
         </p>
+        <hr class="divisor-pub-options">
         <p>
-          <a href="#/tab/fiscalizar" class="subdued">1 Apoiador</a>
-          <a href="#/tab/fiscalizar/{{publicacao.id}}" class="subdued">5 Comentários</a>
-          <a href="#/tab/fiscalizar" class="subdued">Divulgar</a>
+          <a href="#/tab/fiscalizar" class="subdued" ng-click="apoiarButtom(publicacao.id)"><i class="icon ion-thumbsup tam-icons-fiscalizar "></i> {{publicacao.apoiar}} Apoiar</a>
+          <a href="#/tab/fiscalizar/{{publicacao.id}}" class="subdued"><i class="icon ion-chatbubbles tam-icons-fiscalizar"></i> {{publicacao.comentarios.length}} Comments</a>
+          <a href="#/tab/fiscalizar" class="subdued"><i class="icon ion-share tam-icons-fiscalizar"></i> Divulgar</a>
         </p>
       </div>
-
     </div>
+
   </ion-content>
 </ion-view>

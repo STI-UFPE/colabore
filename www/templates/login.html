@@ -1,0 +1,25 @@
+<ion-view view-title="Login">
+  <ion-content class="padding">
+      <div class="video">
+        <video id="video" muted autoplay loop src="video/video.mp4"></video>
+        <div>
+            <div class="list">
+              <label class="item item-input">
+                <span class="input-label">Login</span>
+                <input type="text" ng-model="input.login">
+              </label>
+              <label class="item item-input">
+                <span class="input-label">Senha</span>
+                <input type="password" ng-model="input.senha">
+              </label>
+              <button class="button button-full button-positive" ng-click="showAlert()">
+                Entrar
+              </button>
+              <label>
+                <a><span class="input-label">Não possui cadastro?</span></a>
+              </label>
+            </div>
+        </div>
+      </div>
+  </ion-content>
+</ion-view>

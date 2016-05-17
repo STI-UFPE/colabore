@@ -1,0 +1,30 @@
+<ion-view view-title="Publicar">
+  <ion-content class="">
+    <div class="item item-avatar" style="background: #F5F5F5">
+      <img src="{{usuarioLogado.face}}">
+      <h2>{{usuarioLogado.nome}}</h2>
+      <h6>16 de maio de 2016</h6>
+      <button class="button button-positive buttom-postar" ng-click="postarPublicacao()">
+        <i class="icon ion-paper-airplane"></i>
+      </button>
+    </div>
+    <div class="padding">
+    <img ng-hide="imagemPost" class="full-image" src="img\photo\12917836_1011652265550934_765238525_n.jpg">
+    </div>
+    <label class="item item-input">
+      <textarea placeholder="Escreva alguma coisa..." ng-model="$parent.descricaoPostagem"></textarea>
+    </label>
+
+    <div class="list">
+      <div>
+        <button class="button buttom-anexar-img" ng-click="getImagem()">
+          <i class="icon ion-image"></i>
+        </button>
+        <button class="button buttom-anexar-img" ng-click="getImagem()">
+          <i class="icon ion-camera"></i>
+        </button>
+      </div>
+    </div>
+
+  </ion-content>
+</ion-view>

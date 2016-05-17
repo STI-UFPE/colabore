@@ -6,7 +6,7 @@
 -->
 <ion-view view-title="{{publicacao.nome}}">
   <ion-content>
-
+    <div class="card">
     <div class="item item-avatar">
       <img src="{{publicacao.face}}">
       <h2>{{publicacao.nome}}</h2>
@@ -16,13 +16,30 @@
         {{publicacao.descricao}}
       </p>
     </div>
-    <div class="list">
-      <label class="item item-input">
-        <textarea placeholder="Digite seu comentário"></textarea>
-      </label>
-      <button class="button button-full button-positive">
-        Comentar
-      </button>
-  </ion-content>
+      </div>
+    <div class="card">
+    <div class="list"style="background: darkgrey">
+      <i class="comentario-titulo"><span class="comentario-titulo">Comentários</span></i>
+      <div ng-hide="comentOcult" class="item item-avatar"ng-repeat="comentario in publicacao.comentarios">
+        <img src="{{comentario.idUsuario.face}}">
+        <h4><span style="font-weight: bold">{{comentario.idUsuario.nome}}</span>  em {{publicacao.data}}</h4>
+        <p>{{comentario.comentario}}</p>
+      </div>
     </div>
+    <div class="list">
+      <label class="item item-input" >
+        <label style="width: 100%">
+        <textarea placeholder="Digite seu comentário" ng-model="$parent.newComment"></textarea>
+        </label>
+        <label>
+        <button class="button button-positive teste" ng-click="addComment(usuarioLogado)">
+        <i class= "icon ion-android-send tam-icons-fiscalizar" ></i>
+
+        </button>
+        </label>
+      </label>
+    </div>
+    </div>
+  </ion-content>
+
 </ion-view>

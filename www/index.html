@@ -5,12 +5,13 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
     <title></title>
 
-    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <!--<link href="lib/ionic/css/ionic.css" rel="stylesheet">-->
     <link href="css/style.css" rel="stylesheet">
 
     <!-- Se estiver usando Sass (execute gulp sass primeiro), e então descomente a linha abaixo e remover o CSS incluido acima
-    <link href="css/ionic.app.css" rel="stylesheet">
     -->
+    <link href="css/ionic.app.css" rel="stylesheet">
+
 
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
@@ -24,14 +25,43 @@
     <!--
       A barra de navegação que será atualizado à medida que navegar entre as views.
     -->
-    <ion-nav-bar class="bar-stable">
+    <ion-nav-bar class="bar-positive">
       <ion-nav-back-button>
-        Voltar
       </ion-nav-back-button>
     </ion-nav-bar>
     <!--
       As views serão renderizadas na <ion-nav-view>, directive Templates abaixo fica na pasta /templates.
     -->
-    <ion-nav-view></ion-nav-view>
+    <ion-nav-view ></ion-nav-view>
+    <script id="templates/login.html" type="text/ng-template">
+      <ion-view view-title="Login">
+        <ion-content class="padding">
+          <div class="video">
+            <video src="video/video.mp4" autoplay muted class="video"></video>
+            <div>
+              <div class="list">
+                <p style="font-size: 30px; text-align: center">Colabore<span style="color:#7E0021; font-size: 50px">.</span>ufpe</p>
+                <label class="item item-input">
+                  <span class="input-label">Login</span>
+                  <input type="text" ng-model="input.login">
+                </label>
+                <label class="item item-input">
+                  <span class="input-label">Senha</span>
+                  <input type="password" ng-model="input.senha">
+                </label>
+                <button class="button button-full button-positive" ng-click="showAlert()">
+                  Entrar
+                </button>
+                <label style="text-align: center">
+                  <a ><span class="input-label">Não possui cadastro?</span></a>
+                </label>
+              </div>
+            </div>
+          </div>
+        </ion-content>
+      </ion-view>
+    </script>
+
+
   </body>
 </html>

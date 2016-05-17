@@ -20,7 +20,11 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   // Configurar os diversos estados que o aplicativo pode estar.
   // Cada controlador de cada estado pode ser encontrado em controllers.js
   $stateProvider
-
+    .state('login',{
+      url: '/login',
+      templateUrl: 'templates/login.html',
+      controller: 'LoginCtrl'
+    })
   // configurar um estado abstrato para as tabs directive
     .state('tab', {
     url: '/tab',
@@ -53,7 +57,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       url: '/publicar',
       views: {
         'tab-publicar': {
-          templateUrl: 'templates/tab-publicar.html',
+          templateUrl: 'templates/tab-publicar2.html',
           controller: 'PublicarCtrl'
         }
       }
@@ -70,6 +74,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   });
 
   // se nenhum dos estados acima são correspondidos, use isso como o fallback
-  $urlRouterProvider.otherwise('/tab/publicar');
+  $urlRouterProvider.otherwise('/login');
 
 });
