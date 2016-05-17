@@ -5,12 +5,19 @@
 // o segundo parâmetro é uma matriz de 'requires'
 // 'starter.services' é encontrado em services.js
 // 'starter.controllers' é encontrado em controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
+angular.module('starter', ['ionic', 'angular-momentjs', 'starter.controllers', 'starter.services'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
 
   });
+})
+
+.config(function($momentProvider){
+  moment.locale("pt-BR");
+  $momentProvider
+    .asyncLoading(false)
+    .scriptUrl('lib/moment-with-locales.js');
 })
 
 .config(function($stateProvider, $urlRouterProvider) {
@@ -59,12 +66,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       }
     })
 
-  .state('tab.atividade', {
-    url: '/atividade',
+  .state('tab.configuracao', {
+    url: '/configuracao',
     views: {
-      'tab-atividade': {
-        templateUrl: 'templates/tab-atividade.html',
-        controller: 'AtividadeCtrl'
+      'tab-configuracao': {
+        templateUrl: 'templates/tab-configuracao.html',
+        controller: 'ConfiguracaoCtrl'
       }
     }
   });
@@ -72,4 +79,17 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   // se nenhum dos estados acima são correspondidos, use isso como o fallback
   $urlRouterProvider.otherwise('/tab/publicar');
 
+})
+
+.directive('ngEnter', function() {
+    return function(scope, element, attrs) {
+        element.bind("keydown", function(e) {
+            if(e.which === 13) {
+                scope.$apply(function(){
+                    scope.$eval(attrs.ngEnter, {'e': e});
+                });
+                e.preventDefault();
+            }
+        });
+    };
 });

@@ -17,12 +17,15 @@
       </p>
     </div>
     <div class="list">
-      <label class="item item-input">
-        <textarea placeholder="Digite seu comentário"></textarea>
-      </label>
-      <button class="button button-full button-positive">
-        Comentar
-      </button>
+      <ion-item ng-repeat="comment in publicacao.comments">
+        <b>{{comment.nome}}</b> {{comment.msg}} (<span am-time-ago="comment.data"></span>)
+      </ion-item>
+      <form ng-submit="add(comment)">
+        <label class="item item-input">
+          <textarea placeholder="Digite seu comentário" ng-model="comment.message" ng-enter="add(comment)"></textarea>
+        </label>
+        <button type="submit" class="button button-block button-positive">Comentar</button>
+      </form>
   </ion-content>
     </div>
 </ion-view>
