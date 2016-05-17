@@ -21,10 +21,14 @@ div.img > video{
   height: auto;
 }
 
+.titulo-projeto{
+  font-size: 40px; text-align: center; margin-bottom: 100px;
+}
+
 div.video > div{
   position: relative;
   height: auto;
-  margin-top: -550px;
+  margin-top: -700px;
 }
 
 .tam-icons-fiscalizar{

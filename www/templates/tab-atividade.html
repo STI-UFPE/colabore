@@ -1,26 +1,46 @@
-<ion-view class= "minhacor" view-title="Atividade">
-	<ion-content >
+<ion-view view-title="Atividade">
+  <ion-header-bar class="bar-positive">
+    <div class="buttons">
+      <button class="button button-icon icon ion-ios-minus-outline"
+              ng-click="data.showDelete = !data.showDelete; data.showReorder = false"></button>
+    </div>
+    <h1 class="title">Ionic Delete/Option Buttons</h1>
+    <div class="buttons">
+      <button class="button" ng-click="data.showDelete = false; data.showReorder = !data.showReorder">
+        Reorder
+      </button>
+    </div>
+  </ion-header-bar>
+
+  <ion-content >
 	<!-- The list directive is great, but be sure to also checkout the collection repeat directive when scrolling through large lists -->
 
-	  <ion-list show-delete="data.showDelete" show-reorder="data.showReorder">
+	  <ion-list show-delete="shouldShowDelete"
+              show-reorder="shouldShowReorder"
+              can-swipe="listCanSwipe">
 
-	    <ion-item ng-repeat="item in items"
-	              item="item"
-	              class="item-remove-animate">
-	      <ion-reorder-button class="ion-navicon" on-reorder="moveItem(item, $fromIndex, $toIndex)"></ion-reorder-button>
-	      Item {{ item.id }}
-	      <ion-delete-button class="ion-minus-circled"
-	                         ng-click="onItemDelete(item)">
-	      </ion-delete-button>
-	      <ion-option-button class="button-assertive"
-	                         ng-click="edit(item)">
-	        Editar
-	      </ion-option-button>
-	      <ion-option-button class="button-calm"
-	                         ng-click="share(item)">
-	        Divulgar
-	      </ion-option-button>
-	    </ion-item>
+      <ion-item ng-repeat="item in items"
+                class="item-thumbnail-left">
+
+        <img ng-src="{{item.img}}">
+        <h2>Atividade {{item.id}}</h2>
+        <p>{{item.description}}</p>
+        <ion-option-button class="button-positive"
+                           ng-click="share(item)">
+          Share
+        </ion-option-button>
+        <ion-option-button class="button-info"
+                           ng-click="edit(item)">
+          Edit
+        </ion-option-button>
+        <ion-delete-button class="ion-minus-circled"
+                           ng-click="items.splice($index, 1)">
+        </ion-delete-button>
+        <ion-reorder-button class="ion-navicon"
+                            on-reorder="reorderItem(item, $fromIndex, $toIndex)">
+        </ion-reorder-button>
+
+      </ion-item>
 
 	  </ion-list>
 	</ion-content>

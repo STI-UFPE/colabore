@@ -20,10 +20,11 @@
     <div class="card">
     <div class="list"style="background: darkgrey">
       <i class="comentario-titulo"><span class="comentario-titulo">Comentários</span></i>
-      <div ng-hide="comentOcult" class="item item-avatar"ng-repeat="comentario in publicacao.comentarios">
+      <div class="item item-avatar"ng-repeat="comentario in publicacao.comentarios">
         <img src="{{comentario.idUsuario.face}}">
         <h4><span style="font-weight: bold">{{comentario.idUsuario.nome}}</span>  em {{publicacao.data}}</h4>
         <p>{{comentario.comentario}}</p>
+
       </div>
     </div>
     <div class="list">

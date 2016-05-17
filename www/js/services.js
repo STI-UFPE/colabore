@@ -12,7 +12,7 @@ angular.module('starter.services', [])
     face: 'img/ben.png',
     foto: 'img/photo/12917836_1011652265550934_765238525_n.jpg',
     apoiar: 0,
-    comentarios:[{}]
+    comentarios: []
   }, {
     id: 1,
     nome: 'Max Lynx',
@@ -21,7 +21,7 @@ angular.module('starter.services', [])
     face: 'img/max.png',
     foto: 'img/photo/12959915_1025189597548708_2087513361_n.jpg',
     apoiar: 0,
-    comentarios:[{}]
+    comentarios:[]
   }, {
     id: 2,
     nome: 'Adam Bradleyson',
@@ -30,7 +30,7 @@ angular.module('starter.services', [])
     face: 'img/adam.jpg',
     foto: 'img/photo/12959949_697888996981196_1152474910_n.jpg',
     apoiar: 0,
-    comentarios:[{}]
+    comentarios:[]
   }, {
     id: 3,
     nome: 'Perry Governor',
@@ -39,7 +39,7 @@ angular.module('starter.services', [])
     face: 'img/perry.png',
     foto: 'img/photo/12959953_471822229694124_1099346753_n.jpg',
     apoiar: 0,
-    comentarios:[{}]
+    comentarios:[]
   }, {
     id: 4,
     nome: 'Thiago Bezerra',
@@ -48,7 +48,7 @@ angular.module('starter.services', [])
     face: 'img/thiago.jpg',
     foto: 'img/photo/13109037_1606067166351284_793594177_n.jpg',
     apoiar: 0,
-    comentarios:[{}]
+    comentarios:[]
   }, {
     id: 5,
     nome: 'Mike Harrington',
@@ -57,7 +57,7 @@ angular.module('starter.services', [])
     face: 'img/mike.png',
     foto: 'img/photo/12976678_1114384848619243_270315244_n.jpg',
     apoiar: 0,
-    comentarios:[{}]
+    comentarios:[]
   }];
 
   return {
@@ -76,7 +76,7 @@ angular.module('starter.services', [])
 })
 
 .factory('Usuarios', function() {
-  // Pode usar um recurso aqui que retorna uma array JSON
+  // Usuarios exemplos, apenas os dois primeiros
 
   // Alguns dados de testes falso
   var usuarios =  [{
@@ -84,13 +84,15 @@ angular.module('starter.services', [])
       nome: 'Ben Sparrow',
       face: 'img/ben.png',
       login: 'ben123',
-      senha: '123456'
+      senha: '123456',
+      publicacoesId: []
     }, {
       id: 1,
       nome: 'Max Lynx',
       face: 'img/max.png',
       login: 'max123',
-      senha: '123456'
+      senha: '123456',
+      publicacoesId: []
     }];
 
   return {
@@ -116,6 +118,7 @@ angular.module('starter.services', [])
   };
 })
 
+  //retorna o usuario logado no momento
 .factory('UsuarioLogado', function(){
   var usuarioLogado = {
     usuario: null

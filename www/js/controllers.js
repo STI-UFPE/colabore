@@ -10,7 +10,7 @@ angular.module('starter.controllers', [])
   $scope.getImagem = function () {
     $scope.imagemPost = false;
   }
-  
+
   $scope.postarPublicacao = function () {
       var confirmPopup = $ionicPopup.confirm({
         title: 'Confirmação',
@@ -20,6 +20,8 @@ angular.module('starter.controllers', [])
       confirmPopup.then(function(res) {
         if(res) {
           console.log('publicar');
+
+          $scope.usuarioLogado.publicacoesId.push()
         } else {
           console.log('cancelar');
         }
@@ -82,7 +84,6 @@ angular.module('starter.controllers', [])
   $scope.usuarioLogado = UsuarioLogado.getUsuarioLogado();
   console.log($scope.usuarioLogado);
   $scope.usuarios = Usuarios.allUsuarios();
-  $scope.comentOcult = true;
 
   $scope.newComment='';
 
@@ -96,22 +97,49 @@ angular.module('starter.controllers', [])
     }
     $scope.publicacao.comentarios.push(this.novoComent);
     $scope.newComment='';
-    $scope.comentOcult = false;
   };
 
 })
 
-.controller('AtividadeCtrl', function($scope) {
+.controller('AtividadeCtrl', function($scope, UsuarioLogado, $ionicPopup) {
 
-  $scope.data = {
-    showDelete: false
-  };
+  $scope.usuarioLogado = UsuarioLogado.getUsuarioLogado();
+
+  $scope.shouldShowDelete = false;
+  $scope.shouldShowReorder = false;
+  $scope.listCanSwipe = true;
 
   $scope.edit = function(item) {
-    alert('Edita Item: ' + item.id);
+      var confirmPopup = $ionicPopup.confirm({
+        title: 'Confirmação',
+        template: 'Você realmente deseja editar?'
+      });
+
+      confirmPopup.then(function(res) {
+        if(res) {
+          console.log('editar');
+
+          $scope.usuarioLogado.publicacoesId.push()
+        } else {
+          console.log('cancelar');
+        }
+      });
   };
   $scope.share = function(item) {
-    alert('Divulga Item: ' + item.id);
+    var confirmPopup = $ionicPopup.confirm({
+      title: 'Confirmação',
+      template: 'Você realmente deseja divulgar?'
+    });
+
+    confirmPopup.then(function(res) {
+      if(res) {
+        console.log('divulgar');
+
+        $scope.usuarioLogado.publicacoesId.push()
+      } else {
+        console.log('cancelar');
+      }
+    });
   };
 
   $scope.moveItem = function(item, fromIndex, toIndex) {
@@ -124,56 +152,35 @@ angular.module('starter.controllers', [])
   };
 
   $scope.items = [
-    { id: 0 },
-    { id: 1 },
-    { id: 2 },
-    { id: 3 },
-    { id: 4 },
-    { id: 5 },
-    { id: 6 },
-    { id: 7 },
-    { id: 8 },
-    { id: 9 },
-    { id: 10 },
-    { id: 11 },
-    { id: 12 },
-    { id: 13 },
-    { id: 14 },
-    { id: 15 },
-    { id: 16 },
-    { id: 17 },
-    { id: 18 },
-    { id: 19 },
-    { id: 20 },
-    { id: 21 },
-    { id: 22 },
-    { id: 23 },
-    { id: 24 },
-    { id: 25 },
-    { id: 26 },
-    { id: 27 },
-    { id: 28 },
-    { id: 29 },
-    { id: 30 },
-    { id: 31 },
-    { id: 32 },
-    { id: 33 },
-    { id: 34 },
-    { id: 35 },
-    { id: 36 },
-    { id: 37 },
-    { id: 38 },
-    { id: 39 },
-    { id: 40 },
-    { id: 41 },
-    { id: 42 },
-    { id: 43 },
-    { id: 44 },
-    { id: 45 },
-    { id: 46 },
-    { id: 47 },
-    { id: 48 },
-    { id: 49 },
-    { id: 50 }
+    { id: 0,
+      img: 'img/photo/12917836_1011652265550934_765238525_n.jpg'},
+    { id: 1,
+      img: 'img/photo/12917836_1011652265550934_765238525_n.jpg' },
+    { id: 2,
+      img: 'img/photo/12917836_1011652265550934_765238525_n.jpg' },
+    { id: 3,
+      img: 'img/photo/12917836_1011652265550934_765238525_n.jpg' },
+    { id: 4,
+      img: 'img/photo/12917836_1011652265550934_765238525_n.jpg' },
+    { id: 5,
+      img: 'img/photo/12917836_1011652265550934_765238525_n.jpg' },
+    { id: 6,
+      img: 'img/photo/12917836_1011652265550934_765238525_n.jpg' },
+    { id: 7,
+      img: 'img/photo/12917836_1011652265550934_765238525_n.jpg' },
+    { id: 8,
+      img: 'img/photo/12917836_1011652265550934_765238525_n.jpg' },
+    { id: 9,
+      img: 'img/photo/12917836_1011652265550934_765238525_n.jpg' },
+    { id: 10,
+      img: 'img/photo/12917836_1011652265550934_765238525_n.jpg' },
+    { id: 11,
+      img: 'img/photo/12917836_1011652265550934_765238525_n.jpg' },
+    { id: 12,
+      img: 'img/photo/12917836_1011652265550934_765238525_n.jpg' },
+    { id: 13,
+      img: 'img/photo/12917836_1011652265550934_765238525_n.jpg' },
+    { id: 14,
+      img: 'img/photo/12917836_1011652265550934_765238525_n.jpg'   }
   ];
 });
