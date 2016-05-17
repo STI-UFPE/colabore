@@ -3,24 +3,29 @@
     <div class="list list-inset">
       <label class="item item-input">
         <i class="icon ion-search placeholder-icon"></i>
-        <input type="text" placeholder="Pesquisar">
+        <input type="text" placeholder="Pesquisar" ng-model="searchText">
       </label>
     </div>
-    <div class="list card" ng-repeat="publicacao in publicacoes">
+    <div class="list card" ng-repeat="publicacao in publicacoes | filter:searchText">
 
       <div class="item item-avatar">
         <img src="{{publicacao.face}}">
         <h2>{{publicacao.nome}}</h2>
-        <p>{{publicacao.data}}</p>
+        <p><span am-time-ago="publicacao.data"></span></p>
       </div>
       <div class="item item-body">
-        <img class="full-image" src="{{publicacao.foto}}">
+        <span ng-if="publicacao.foto">
+          <img class="full-image" src="{{publicacao.foto}}">
+        </span>
         <p>
           {{publicacao.descricao}}
         </p>
         <p>
-          <a href="#/tab/fiscalizar" class="subdued">1 Apoiador</a>
-          <a href="#/tab/fiscalizar/{{publicacao.id}}" class="subdued">5 Comentários</a>
+          <a href="#/tab/fiscalizar" class="subdued" ng-click="apoiarToggle(publicacao.id)">
+          {{verificarApoio(publicacao.id) == false ? "Apoiar" : "Retirar apoio"}}
+           </a>|
+          <a href="#/tab/fiscalizar" class="subdued">{{publicacao.likes.length}} Apoiadores</a>
+          <a href="#/tab/fiscalizar/{{publicacao.id}}" class="subdued">{{publicacao.comments.length}} Comentários</a>
           <a href="#/tab/fiscalizar" class="subdued">Divulgar</a>
         </p>
       </div>

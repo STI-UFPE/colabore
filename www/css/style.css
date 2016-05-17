@@ -1,1 +1,24 @@
 /* Vazio. Adicione seu próprio CSS se a gosto */
+/*
+B21212
+FFFC19
+FF0000
+1485CC
+0171B2
+*/
+
+.first-bg {
+	background-color: #B21212; /*vermelho escuro*/
+}
+.second-bg {
+	background-color: #FFFC19; /*amarelo*/
+}
+.third-bg {
+	background-color: #FF0000; /*vermelho*/
+}
+.fourth-bg {
+	background-color: #1485CC; /*azul claro*/
+}
+.fifth-bg {
+	background-color: #0171B2; /*azul escuro*/
+}
