@@ -1,10 +1,10 @@
 <ion-view view-title="Fiscalizar">
   <ion-content class="padding">
     <div class="list list-inset">
-      <label class="item item-input">
+     
         <i class="icon ion-search placeholder-icon"></i>
-        <input type="text" placeholder="Pesquisar">
-      </label>
+        <input type="text" placeholder="Pesquisar" id="pesquisa">
+     
     </div>
     <div class="list card" ng-repeat="publicacao in publicacoes">
 
@@ -19,10 +19,14 @@
           {{publicacao.descricao}}
         </p>
         <p>
-          <a href="#/tab/fiscalizar" class="subdued">1 Apoiador</a>
-          <a href="#/tab/fiscalizar/{{publicacao.id}}" class="subdued">5 Comentários</a>
-          <a href="#/tab/fiscalizar" class="subdued">Divulgar</a>
-        </p>
+            <button ng-click="count=count+1" class="coment">Curtidas {{count}}</button>
+            <button type="submit" class="coment">
+                <a href="#/tab/fiscalizar/{{publicacao.id}}" class="subdued">Comentários</a>
+            </button>
+            <button type="submit" class="coment">
+                <a href="#/tab/fiscalizar" class="subdued">Divulgar</a>
+            </button>
+                 </p>
       </div>
 
     </div>

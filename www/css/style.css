@@ -1,1 +1,62 @@
-/* Vazio. Adicione seu próprio CSS se a gosto */
+
+#resposta{
+
+    background-color:#E0EEEE;
+    border:solid 2px #5F9EA0;
+    border-radius:10px;
+    width:300px;
+    height:100px;
+}
+
+.list-inset {
+
+    background-color:#2F4F4F;
+    border:solid 1px;
+    border-radius:15px;
+    width:300px;
+
+}
+#pesquisa{
+    float:left;
+    background-color:transparent;
+    padding-left:5px;
+    font-style:italic;
+    font-size:18px;
+    border:none;
+    height:32px;
+    width:260px;
+}
+
+#postcaixa{
+    float:left;
+    background-color:transparent;
+    padding-left:5px;  
+    font-size:18px;
+    border:none;
+    height:98px;
+    width:298px;
+    
+}
+#post{
+     background-color:#E0EEEE;
+    border:solid 2px #5F9EA0;
+    border-radius:10px;
+    width:300px;
+    height:125px;
+}
+
+.coment{
+    background-color:azure;
+    border: solid 2px #5F9EA0;
+    border-radius: 10px;
+
+}
+.item-body{
+    background-color:darkgrey;
+    
+    
+}
+.item-avatar{
+    background-color:darkseagreen;
+}
+
