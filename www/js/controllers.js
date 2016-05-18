@@ -1,6 +1,50 @@
 angular.module('starter.controllers', [])
 
-.controller('PublicarCtrl', function($scope) {})
+
+
+
+.controller('PublicarCtrl', function ($scope) {
+    $scope.form = {};
+    
+
+    $scope.addReview = function () {
+        
+        $scope.reviews.push($scope.form);
+        $scope.form = {};//Limpa o input
+    }
+    $scope.reviews = [
+        {
+            comment: 'asdasdasd',
+            by: 'Chandler.bing@hotmail.com'
+        }
+
+    ];
+
+
+    console.log("sadasd");
+
+})
+    .controller('Publica', function ($scope) {
+        $scope.form = {};
+
+
+        $scope.addReview = function () {
+            
+            $scope.reviews.push($scope.form);
+            $scope.form = {};//Limpa o input
+        }
+        $scope.reviews = [
+            {
+                comment: '',
+                by: ''
+            }
+
+        ];
+
+
+        
+
+    })
 
 .controller('FiscalizarCtrl', function($scope, Publicacoes) {
   // Com a nova view cache no Ionic, Controllers só são chamados quando eles são 

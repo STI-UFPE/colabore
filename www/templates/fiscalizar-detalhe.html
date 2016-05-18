@@ -6,23 +6,49 @@
 -->
 <ion-view view-title="{{publicacao.nome}}">
   <ion-content>
+      <html>
+      
+      <body ng-app="start.controllers">
+          <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-beta.2/angular.min.js"></script>
+        <script type="text/javascript" src="controllers.js"></script>
+        
 
-    <div class="item item-avatar">
-      <img src="{{publicacao.face}}">
-      <h2>{{publicacao.nome}}</h2>
-      <p>{{publicacao.data}}</p>
-      <img class="full-image" src="{{publicacao.foto}}">
-      <p>
-        {{publicacao.descricao}}
-      </p>
-    </div>
-    <div class="list">
-      <label class="item item-input">
-        <textarea placeholder="Digite seu comentário"></textarea>
-      </label>
-      <button class="button button-full button-positive">
-        Comentar
-      </button>
+          <div class="item item-avatar">
+              <img src="{{publicacao.face}}">
+              <h2>{{publicacao.nome}}</h2>
+              <p>{{publicacao.data}}</p>
+              <img class="full-image" src="{{publicacao.foto}}">
+              <p>
+                  {{publicacao.descricao}}
+              </p>
+          </div>
+          <div ng-controller="Publica">
+              <div>
+                  <div ng-repeat="review in reviews">
+                      
+                      <div id="caixaComment">
+                          <textarea id="resposta">{{review.comment}}</textarea>
+
+                      </div>
+
+                  </div>
+              </div>
+
+              <form name="reviewForm" ng-submit="addReview()">
+                  
+                  <div id="post">
+                      <textarea id="postcaixa" ng-model="form.comment" placeholder="deixe seu comentario" rows="2" cols="25"></textarea>
+
+                  </div>
+                    
+                  <input type="submit" value="Comentarios" class="coment" />
+              </form>
+
+
+          </div>
+            
+      </body>
+  </html>
   </ion-content>
-    </div>
+   
 </ion-view>
